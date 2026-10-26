@@ -23,13 +23,18 @@
 <header class="site-header">
   <a class="logo" href="index.html" aria-label="AYO, home">AYO</a>
   <p class="mono doc-no">Doc. AYO-2026 · Lagos, NG</p>
-  <nav class="nav" aria-label="Main">
-    <a href="work.html" aria-current="page">Work</a>
-    <a href="about.html">About</a>
-    <a href="index.html#proof">Proof</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <a class="btn btn--primary" href="contact.html">Start a project</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+    <span class="menu-toggle__bar"></span><span class="menu-toggle__bar"></span><span class="menu-toggle__bar"></span>
+  </button>
+  <div class="menu" id="site-menu">
+    <nav class="nav" aria-label="Main">
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="index.html#proof">Proof</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn--primary" href="contact.html">Start a project</a>
+  </div>
 </header>
 <main>
 <section class="section work-hero">
