@@ -16,6 +16,28 @@
     t._h = setTimeout(function () { t.classList.remove("is-on"); }, 2200);
   }
 
+  // Mobile hamburger menu
+  var header = document.querySelector(".site-header");
+  var toggle = document.querySelector(".menu-toggle");
+  if (header && toggle) {
+    var setMenu = function (open) {
+      header.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    toggle.addEventListener("click", function () { setMenu(!header.classList.contains("is-open")); });
+    document.querySelectorAll("#site-menu a").forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && header.classList.contains("is-open")) { setMenu(false); toggle.focus(); }
+    });
+    document.addEventListener("click", function (e) {
+      if (header.classList.contains("is-open") && !header.contains(e.target)) setMenu(false);
+    });
+    window.matchMedia("(min-width: 761px)").addEventListener("change", function (m) { if (m.matches) setMenu(false); });
+  }
+
   // Copy email
   document.querySelectorAll("[data-copy-email]").forEach(function (btn) {
     btn.addEventListener("click", function () {
